@@ -10,15 +10,12 @@ Get binary package:
     - source_hash: sha256={{ checksum }}
 
 Extract binary package:
-  archive.extracted:
-    - name: /usr/local/src/
-    - source: /usr/local/src/{{ pkgname }}.tar.gz
-    - archive_format: tar
-    - tar_options: z 
+  cmd.run:
+    - name: tar -zxvf /usr/local/src/{{ pkgname }}.tar.gz
     - if_missing: /usr/local/src/{{ pkgname }}
 
-Copy lib:
-  cmd.run:
-    - cwd: /usr/local/src/{{ pkgname }}/
-    - name: cp -r bin/ include/ lib/ share/ /usr/local/
-    - unless: cmp /usr/local/bin/node /usr/local/src/{{ pkgname }}/bin/node
+#Copy lib:
+#  cmd.run:
+#    - cwd: /usr/local/src/{{ pkgname }}/
+#    - name: cp -r bin/ include/ lib/ share/ /usr/local/
+#    - unless: cmp /usr/local/bin/node /usr/local/src/{{ pkgname }}/bin/node
