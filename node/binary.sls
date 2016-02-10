@@ -10,8 +10,10 @@ Get binary package:
     - source_hash: sha256={{ checksum }}
 
 Extract binary package:
-  cmd.run:
-    - name: tar -zxvf /usr/local/src/{{ pkgname }}.tar.gz
+  archive.extracted:
+    - name: /usr/local/src/
+    - source: /usr/local/src/{{ pkgname }}.tar.gz
+    - archive_format: tar
     - if_missing: /usr/local/src/{{ pkgname }}
 
 #Copy lib:
