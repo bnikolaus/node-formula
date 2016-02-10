@@ -14,6 +14,7 @@ Extract binary package:
     - name: /usr/local/src/
     - source: /usr/local/src/{{ pkgname }}.tar.gz
     - archive_format: tar
+    - tar_options: z 
     - if_missing: /usr/local/src/{{ pkgname }}
 
 Copy lib:
