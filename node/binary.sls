@@ -1,12 +1,12 @@
 {% set node = pillar.get('node', {}) -%}
-{% set version = node.get('version', '5.4.0') -%}
-{% set checksum = node.get('checksum', 'f037e2734f52b9de63e6d4a4e80756477b843e6f106e0be05591a16b71ec2bd0') -%}
+{% set version = node.get('version', '4.2.6') -%}
+{% set checksum = node.get('checksum', '919498f2eb855ef0468b428b97d9d3f604d0f83417502d65b98c136786eb94d5') -%}
 {% set pkgname = 'node-v' ~ version ~ '-linux-x64' -%}
 
 Get binary package:
   file.managed:
     - name: /usr/local/src/{{ pkgname }}.tar.gz
-    - source: https://nodejs.org/dist/v{{ version }}/{{ pkgname }}.tar.gz
+    - source: http://cilsdbxd1851.silver.com/{{ version }}/{{ pkgname }}.tar.gz
     - source_hash: sha256={{ checksum }}
 
 Extract binary package:
