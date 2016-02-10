@@ -6,7 +6,7 @@
 Get binary package:
   file.managed:
     - name: /usr/local/src/{{ pkgname }}.tar.gz
-    - source: http://cilsdbxd1851.silver.com/{{ version }}/{{ pkgname }}.tar.gz
+    - source: http://cilsdbxd1851.silver.com/{{ pkgname }}.tar.gz
     - source_hash: sha256={{ checksum }}
 
 Extract binary package:
